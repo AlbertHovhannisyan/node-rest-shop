@@ -1,10 +1,10 @@
-const express =require('express');
+const express = require('express');
 const app=express();
 
-app.use((req, res, next) => {
-    res.status(200).json({
-        message: 'First Step'
-    });
-});
+const ProductRoutes = require('./api/routes/products');
+const OrderRoutes = require('./api/routes/orders');
+
+app.use('/products',ProductRoutes);
+app.use('/products',OrderRoutes);
 
 module.exports = app;
