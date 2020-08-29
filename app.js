@@ -2,9 +2,16 @@
 const app = require('express')();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const ProductRoutes = require('./api/routes/products');
 const OrderRoutes = require('./api/routes/orders');
+
+mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGODB_PASSWORD + '@node-rest-shop.ksps9.mongodb.net/test?retryWrites=true&w=majority',
+    {
+        //mongoose version check after update version will  https://github.com/feathersjs/cli/issues/136
+        useNewUrlParser: true
+});
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
