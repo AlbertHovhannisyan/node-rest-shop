@@ -13,6 +13,8 @@ mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGODB_PASSWORD + '@n
         useNewUrlParser: true
 });
 
+mongoose.Promise = global.Promise;
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
