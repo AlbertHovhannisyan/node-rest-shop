@@ -23,5 +23,3 @@ npm install
 > Run node server
 ```shell
 npm start
-
-Sano barev inch ka
