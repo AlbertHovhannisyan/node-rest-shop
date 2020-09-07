@@ -1,5 +1,5 @@
-
-const app = require('express')();
+const express = require ('express')
+const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -16,6 +16,7 @@ mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGODB_PASSWORD + '@n
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
+app.use("/uploads/", express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
