@@ -1,5 +1,6 @@
 {
   "env": {
-    "MONGODB_PASSWORD": "node-shop"
+    "MONGODB_PASSWORD": "node-shop",
+    "JWT_KEY": "key"
   }
 }
