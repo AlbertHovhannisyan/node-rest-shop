@@ -1,3 +1,4 @@
+
 const express = require ('express')
 const app = express();
 const morgan = require('morgan');
@@ -6,6 +7,7 @@ const mongoose = require('mongoose');
 
 const ProductRoutes = require('./api/routes/products');
 const OrderRoutes = require('./api/routes/orders');
+const userRoutes = require('./api/routes/user');
 
 mongoose.connect('mongodb+srv://node-shop:' + process.env.MONGODB_PASSWORD + '@node-rest-shop.ksps9.mongodb.net/test?retryWrites=true&w=majority',
     {
@@ -33,6 +35,7 @@ app.use((req, res, next) => {
 // Routes which should handle requests
 app.use('/products', ProductRoutes);
 app.use('/products', OrderRoutes);
+app.use('/user', userRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
